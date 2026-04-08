@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pride Run | Run for Green Energy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+    /* === TOKENS === */
+    :root {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
+      --text-hero: clamp(3.5rem, 1rem + 8vw, 10rem);
+      --space-4: 1rem; --space-8: 2rem; --space-12: 3rem; --space-16: 4rem;
+      --radius-xl: 1.25rem; --radius-full: 9999px;
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    :root, [data-theme="dark"] {
+      --color-bg: #0e0e0e;
+      --color-surface: #141414;
+      --color-divider: #2e2e2e;
+      --color-border: #3a3a3a;
+      --color-text: #f0f0ee;
+      --color-text-muted: #999896;
+      --color-primary: #5dba60; /* Sustainability Green */
+      --color-primary-hover: #4e9e52;
+      --color-text-inverse: #0e0e0e;
+    }
+
+    [data-theme="light"] {
+      --color-bg: #f5f4f0;
+      --color-surface: #ffffff;
+      --color-divider: #dcd9d4;
+      --color-border: #d2cfc9;
+      --color-text: #1a1916;
+      --color-text-muted: #696764;
+      --color-primary: #2d7a31;
+      --color-text-inverse: #f5f4f0;
+    }
+
+    /* === BASE === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); line-height: 1.6; }
+    h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; line-height: 1; }
+    a { text-decoration: none; color: inherit; }
+
+    /* === NAV === */
+    .nav { position: fixed; top: 0; width: 100%; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: rgba(14, 14, 14, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-divider); }
+    .nav-logo { font-family: var(--font-display); font-weight: 900; font-size: 1.5rem; color: var(--color-primary); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 600; color: var(--color-text-muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--color-primary); }
+
+    /* === HERO === */
+    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 4rem 2rem; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, #1b3d1e 0%, #0e0e0e 70%); opacity: 0.4; z-index: -1; }
+    .hero-title { font-size: var(--text-hero); font-weight: 900; margin-bottom: 1rem; }
+    .hero-title span { color: var(--color-primary); }
+    .hero-desc { max-width: 600px; margin: 0 auto 2rem; color: var(--color-text-muted); }
+
+    /* === BUTTONS === */
+    .btn { padding: 0.8rem 2rem; border-radius: var(--radius-full); font-weight: 700; transition: transform 0.2s, background 0.2s; cursor: pointer; display: inline-block; }
+    .btn-primary { background: var(--color-primary); color: var(--color-text-inverse); }
+    .btn-primary:hover { transform: translateY(-2px); background: var(--color-primary-hover); }
+
+    /* === SECTION === */
+    .section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .section-title { font-size: var(--text-2xl); margin-bottom: 3rem; text-align: center; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+    /* === CARDS === */
+    .card { background: var(--color-surface); padding: 2rem; border-radius: var(--radius-xl); border: 1px solid var(--color-divider); }
+    .card h3 { color: var(--color-primary); margin-bottom: 1rem; }
+
+    /* === STATUS BANNER === */
+    .status-banner { background: #2d2510; border: 1px solid #f8c532; color: #f8c532; padding: 1rem; text-align: center; margin: 2rem; border-radius: 8px; font-weight: 600; }
+
+    .footer { padding: 4rem 2rem; border-top: 1px solid var(--color-divider); text-align: center; font-size: 0.9rem; color: var(--color-text-muted); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">PRIDE RUN</div>
+  <ul class="nav-links">
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#events">EVENTS</a></li>
+    <li><a href="#rules">RULES</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+  <a href="#events" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">JOIN THE MOVEMENT</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p style="text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-primary); font-weight: 700;">Initiative by Chronic Foundation [cite: 5]</p>
+    <h1 class="hero-title">RUN FOR<br><span>GREEN ENERGY</span></h1>
+    <p class="hero-desc">Accelerating zero-carbon growth by rethinking energy consumption and adopting sustainable alternatives. [cite: 14, 17]</p>
+    <a href="#events" class="btn btn-primary">EXPLORE EVENTS</a>
+  </div>
+</section>
+
+<div class="status-banner">
+  ⚠️ NOTICE: All upcoming running events are temporarily postponed for public safety. [cite: 44, 45]
+</div>
+
+<section class="section" id="about">
+  <h2 class="section-title">The Mission</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Sustainability [cite: 6]</h3>
+      <p>Promoting awareness about green energy and climate change to encourage active steps toward sustainable living. [cite: 6]</p>
+    </div>
+    <div class="card">
+      <h3>Renewable Energy [cite: 94]</h3>
+      <p>Driving adoption of Solar, Wind, and Bio-waste energy to significantly reduce carbon emissions. [cite: 12, 13]</p>
+    </div>
+    <div class="card">
+      <h3>Community [cite: 28]</h3>
+      <p>A community-driven event designed to promote healthy lifestyles while building a focus on environmental responsibility. [cite: 28, 30]</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="events" style="background: var(--color-surface); border-radius: var(--radius-xl);">
+  <h2 class="section-title">Event Categories</h2>
+  <div class="grid" style="grid-template-columns: 1fr 1fr;">
+    <div class="card" style="text-align: center;">
+      <h3 style="font-size: 3rem;">5K</h3>
+      <p>RUN / WALK </p>
+      <p style="font-weight: 800; font-size: 1.5rem; margin: 1rem 0;">₹250 </p>
+      <p style="font-size: 0.8rem; color: var(--color-text-muted);">Minimum Age: 14 Years [cite: 158]</p>
+    </div>
+    <div class="card" style="text-align: center;">
+      <h3 style="font-size: 3rem;">2K</h3>
+      <p>FUN RUN / WALK </p>
+      <p style="font-weight: 800; font-size: 1.5rem; margin: 1rem 0;">₹250 </p>
+      <p style="font-size: 0.8rem; color: var(--color-text-muted);">Minimum Age: 6 Years (with Guardian) [cite: 159, 160]</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="rules">
+  <h2 class="section-title">Rules & Fitness</h2>
+  <div class="grid">
+    <div class="card">
+      <h4 style="color: var(--color-primary); margin-bottom: 1rem;">MANDATORY GUIDELINES</h4>
+      <ul style="list-style: none; font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.8rem;">
+        <li>• Reporting time is 5:00 AM on race day. [cite: 173]</li>
+        <li>• Running bibs are mandatory and non-transferable. [cite: 154]</li>
+        <li>• All registrations are non-refundable and non-transferable. [cite: 152]</li>
+        <li>• No wheeled vehicles or unregistered runners allowed. [cite: 177, 178]</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color: var(--color-primary); margin-bottom: 1rem;">MEDICAL ADVISORY</h4>
+      <p style="font-size: 0.8rem; margin-bottom: 1rem;">Consult a doctor if you have heart conditions, chest pain, or breathing difficulties. [cite: 204, 205, 210, 211]</p>
+      <p style="font-size: 0.8rem;">By registering, you confirm you are medically fit and trained for the event. [cite: 197, 198]</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2 class="section-title">Get In Touch</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Chronic Foundation [cite: 235]</h3>
+      <p>150, Infantry Road, Opposite Commissioner Office,<br>Vasanth Nagar, Bengaluru – 560001 [cite: 81]</p>
+      <p style="margin-top: 1rem;">📞 +91 80953 12222 [cite: 116]</p>
+      <p>📧 info@priderun.in [cite: 116]</p>
+    </div>
+    <div class="card">
+      <h3>Follow the Movement</h3>
+      <p>Stay updated on new dates and announcements. [cite: 121, 142]</p>
+      <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+        <a href="https://www.facebook.com/Priderun.in/" style="color: var(--color-primary);">Facebook [cite: 111]</a>
+        <a href="https://twitter.com/run_pride" style="color: var(--color-primary);">Twitter [cite: 112]</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2026 Pride Run - An initiative by Chronic Foundation, Bengaluru. [cite: 145, 235]</p>
+  <p style="font-size: 0.7rem; margin-top: 0.5rem;">Organized by Chronic Foundation. Participation is voluntary and at your own risk. [cite: 145, 233]</p>
+</footer>
+
+<script>
+  // Simple scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'all 0.6s ease-out';
+    observer.observe(card);
+  });
+</script>
+
+</body>
+</html>
